@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors')
 
-app.get('/', (req, res) => {
-  res.send('Hello World from Vercel!');
+
+app.use(cors())
+app.get('/hello', (req, res) => {
+  res.json({message: 'Hello World from Vercel!'});
 });
 
 app.listen(port, () => {
